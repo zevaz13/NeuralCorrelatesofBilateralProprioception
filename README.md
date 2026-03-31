@@ -20,7 +20,7 @@ This repository extends the original work by:
 
 
 For information about how the data were acquired, please read the references or contact me at : sebastianruedaparra13@gmail.com
-
+<img width="623" height="720" alt="Picture3" src="https://github.com/user-attachments/assets/8267e3a1-1c20-46fe-a08c-43e2b7c3bbc1" />
 <img width="988" height="248" alt="ExpTimming" src="https://github.com/user-attachments/assets/d9dc7d81-5db8-4a88-9459-8a8e7e1cce1d" />
 
 ---
