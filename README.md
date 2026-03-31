@@ -1,3 +1,5 @@
+![MATLAB](https://img.shields.io/badge/MATLAB-Compatible-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 # Neural Correlates of Bilateral Proprioception & Training Adaptation
 
 ## Overview
