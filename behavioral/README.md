@@ -1,5 +1,5 @@
 # Behavioral Analysis: Manual Dexterity
-
+![Dexterity Results](https://github.com/user-attachments/assets/2365f4d6-bcf2-4916-930f-83690769d5cc)
 ## Overview
 
 This module analyzes **manual dexterity** to investigate the effects of long-term motor training (piano expertise) on human performance.
@@ -148,31 +148,31 @@ Skilled individuals exhibit more **balanced (bilateral) motor performance**, con
 
 ## Figures
 
-![Dexterity Results](https://github.com/user-attachments/assets/2365f4d6-bcf2-4916-930f-83690769d5cc)
-
 * **(a)** Box and Blocks Test (gross dexterity)
 * **(b)** 9-Hole Peg Test (fine dexterity)
 * **(c)** Bidimensional dexterity distributions
-
 ---
 
 ## Code
 
-* `AnalysisofDexterity.m`
-  → Generates univariate comparisons and Figures (a, b)
-
-* `bidimensionalDistributions.m`
-  → Generates multivariate analysis and Figure (c)
-
+* `AnalysisofDexterity.m` → Generates univariate comparisons and Figures (a, b)
+* `bidimensionalDistributions.m` → Generates multivariate analysis and Figure (c)
 ---
+<img width="700" height="525" alt="dext1Dim" src="https://github.com/user-attachments/assets/fe60f9af-f2df-4ff7-8ec7-6efb893fe08a" />
+<img width="700" height="525" alt="dext2Dim" src="https://github.com/user-attachments/assets/75caadf4-b21a-4447-8f0c-ea5f9f373dde" />
 
 ## Key Takeaway
 
 Motor training (piano expertise) is associated with:
+- Improved overall dexterity (trend)  
+- Reduced asymmetry between hands  
+- More balanced integration of fine and gross motor control  
 
-* Improved overall dexterity (trend)
-* **Reduced asymmetry between hands**
-* More balanced integration of fine and gross motor control
+Playing a musical instrument requires precise, dexterous movements and continuous integration of proprioceptive and sensory feedback. Consistent with this, our results show that:
 
-This supports the idea that **long-term training enhances bilateral motor coordination**.
+- Skilled individuals exhibit **comparable dexterity across both hands**, indicating increased bilateral symmetry  
+- Non-skilled individuals show **reduced performance in the non-dominant hand**, reflecting typical lateralization  
 
+The enhanced bilateral dexterity observed in skilled participants likely reflects the effects of long-term practice, which is known to improve **motor coordination, finger strength, and individuation**.
+
+👉 Overall, these findings support the idea that **sustained motor training promotes more balanced and efficient sensorimotor function**.
