@@ -1,6 +1,7 @@
 # Neural Correlates of Bilateral Proprioception & Training Adaptation
 
 ## Overview
+![lowBetaprogression](https://github.com/user-attachments/assets/99af1a1d-f409-40bc-9a9f-9da2e97a92df)
 
 This repository accompanies the research in:
 
@@ -14,6 +15,11 @@ This repository extends the original work by:
 * Reproducing key analyses from the paper
 * Introducing **new exploratory analyses** not included in the publication
 * Providing a **structured, reproducible pipeline** for multimodal data (EEG, motion capture, behavioral metrics)
+
+
+For information about how the data were acquired, please read the references or contact me at : sebastianruedaparra13@gmail.com
+
+<img width="988" height="248" alt="ExpTimming" src="https://github.com/user-attachments/assets/d9dc7d81-5db8-4a88-9459-8a8e7e1cce1d" />
 
 ---
 
