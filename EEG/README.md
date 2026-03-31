@@ -57,7 +57,7 @@ Preprocessing is implemented using **EEGLAB** and standard pipelines.
 
 Required EEGLAB plugins:
 
-* AMICA
+* AMICA This one is hard to use, [check their wiki](https://sccn.ucsd.edu/~jason/amica_web.html). If not, change the code and use runica.
 * CleanLine
 * ICLabel
 * PrepPipeline
