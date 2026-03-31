@@ -53,7 +53,7 @@ We used a hardware-based trigger system to ensure accurate timing:
 
 ## Preprocessing
 
-Preprocessing is implemented using **EEGLAB** and standard pipelines.
+Preprocessing is implemented using **EEGLAB** and standard pipelines. Loading the data requires especific functions from BCI2000, I have included them in the external folder of the repository.
 
 Required EEGLAB plugins:
 
