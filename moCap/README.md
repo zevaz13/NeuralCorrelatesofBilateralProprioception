@@ -57,7 +57,7 @@ Markers were placed on:
 * Custom marker clusters attached to each hand
 
 All markers on each hand were grouped as a **rigid body**, allowing robust tracking of fingertip position, which is the main variable used in the analysis.
-
+(See paper for full task description)
 ---
 
 ## Example Data
