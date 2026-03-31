@@ -117,7 +117,7 @@ We summarize ERSPs into interpretable features by averaging over:
 
 #### Regions of Interest (ROIs)
 
-* Sensorimotor areas (see figure in repo)
+* Sensorimotor areas (see figure in paper)
 
 ---
 
@@ -147,7 +147,3 @@ This pipeline transforms raw EEG signals into **interpretable features** that ca
 * Sensorimotor rhythms (μ and β)
 * Changes associated with training and proprioception
 
-👉 You can either:
-
-* Use precomputed features for fast analysis
-* Or run the full pipeline for complete control and reproducibility
