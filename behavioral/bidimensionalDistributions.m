@@ -1,0 +1,121 @@
+% This script evaluates bilateral dexterity by jointly analyzing fine and gross motor performance
+% in non-musicians (controls) and skilled pianists.
+%
+% Two complementary behavioral measures are combined into a multidimensional representation:
+%   - 9-Hole Peg Test (9HPT): fine motor dexterity (completion time)
+%   - Box and Blocks Test (B&B): gross motor dexterity (blocks moved per minute)
+%
+% Dexterity for each hand is modeled as a 2D feature vector:
+%   [fine dexterity (9HPT), gross dexterity (B&B)]
+%
+% The analysis is designed to address:
+%   1. Whether there are differences between left and right hand performance within each group
+%   2. Whether motor training (piano expertise) influences inter-hand symmetry
+%
+% The script:
+%   - Constructs bidimensional dexterity representations for each hand
+%   - Performs paired multivariate statistical comparisons using Hotelling’s T² test
+%   - Applies multiple-comparison correction (FDR) across groups
+%   - Visualizes distributions using scatter plots and covariance ellipses
+%
+% This multidimensional approach captures relationships between fine and gross motor control,
+% providing a more complete representation of dexterity than univariate analyses.
+
+clear all;
+load('dextData.mat')
+group = [1 1 1 2 1 2 1 1 2 2 2 1 1 1 2 2 1 1 2 2]; % groups
+
+
+%% Hoteling T squared for interhand comparison of dexterity
+RHd = [NHPTRH BBRH]; % Right hand scores. All participants (fine dexterity, coarse Dexterity)
+LHd = [NHPTLH BBLH]; % Left hand scores. All participants (fine dexterity, coarse Dexterity)
+
+[pvaluec,h,T_sqd] = Hot_Tsqd_2samplesPaired(LHd(group == 1,:),RHd(group == 1,:),0.05); 
+[pvalues,h,T_sqd] = Hot_Tsqd_2samplesPaired(LHd(group == 2,:),RHd(group == 2,:),0.05);
+
+pvals = [pvaluec pvalues]; % resulting p-values for bidimensional comparisons
+[h, crit_p, adj_ci_cvrg, adj_p]= fdrtest(pvals,0.05,'pdep'); % adjusted p-values for both groups [controls, skilled]
+fprintf('Adjusted P-values for distributions [Controls, Skilled]: \n')
+fprintf('adj_p = %.4f  %.4f\n', adj_p(1), adj_p(2));
+fprintf('There is intra group differences between hands for controls (adj_p = 0.0136), not for skilled (adj_p = 0.6824)\n')
+
+%% plotting bi-dimensional distributions 
+figure; 
+% the first plot is for the group of controls
+subplot(2,1,1)
+plot(RHd(group == 1,1), RHd(group == 1,2), 'o'); hold on
+plot(LHd(group == 1,1), LHd(group == 1,2), 'or');
+plot(mean(RHd(group == 1,1)),mean(RHd(group == 1,2)),'xb','MarkerSize',10,'LineWidth',3);
+plot(mean(LHd(group == 1,1)),mean(LHd(group == 1,2)),'xr','MarkerSize',10,'LineWidth',3);
+% put ellipses Right hand
+right = [RHd(group == 1,1), RHd(group == 1,2)];
+centr = [mean(RHd(group == 1,1)) mean(RHd(group == 1,2))];
+A = cov(right-mean(right)) ;   % co-variance matrix 
+[V,D] = eig(A) ;  % GEt Eigenvalues and Eigenvectors 
+Eig = diag(D) ;
+[val,idx] = sort(Eig,'descend') ;
+PV = Eig(idx) % size of spread
+PC = V(:,idx); % these are the directions
+xAxis = [1 0];
+e=ellipse(3*sqrt(PV(1)),3*sqrt(PV(2)),atan(PC(2,1) / PC(1,1)),centr(1),centr(2));
+e.LineWidth = 2;
+% put ellipses left hand
+left = [LHd(group == 1,1), LHd(group == 1,2)];
+centL = [mean(LHd(group == 1,1)) mean(LHd(group == 1,2))];
+A = cov(left-mean(left)) ;   % co-variance matrix 
+[V,D] = eig(A) ;  % GEt Eigenvalues and Eigenvectors 
+Eig = diag(D) ;
+[val,idx] = sort(Eig,'descend') ;
+PV = Eig(idx) % size of spread
+PC = V(:,idx); % these are the directions
+xAxis = [1 0];
+cosOfAngle = max(min(dot(PC(1,:),xAxis)/(norm(PC(1,:))*norm(xAxis)),1),-1);
+e=ellipse(3*sqrt(PV(1)),3*sqrt(PV(2)),atan(PC(2,1) / PC(1,1)),centL(1),centL(2));
+e.LineWidth = 2;
+e.Color = 'r';
+xlim([10 28]);
+ylim([37.5 90]);
+legend({'Right' 'Left'})
+ylabel({'Controls', 'B&B'},'fontsize', 14)
+title({'Bidimensional dexterity (9HPT, B&B)'}, 'fontsize', 14)
+
+% the Second plot is for the group of controls
+subplot(2,1,2)
+plot(RHd(group == 2,1), RHd(group == 2,2), '^'); hold on
+plot(LHd(group == 2,1), LHd(group == 2,2), '^r');
+plot(mean(RHd(group == 2,1)),mean(RHd(group == 2,2)),'xb','MarkerSize',10,'LineWidth',3);
+plot(mean(LHd(group == 2,1)),mean(LHd(group == 2,2)),'xr','MarkerSize',10,'LineWidth',3);
+
+% put ellipses right hand
+right = [RHd(group == 2,1), RHd(group == 2,2)];
+centr = [mean(RHd(group == 2,1)) mean(RHd(group == 2,2))];
+A = cov(right-mean(right)) ;   % co-variance matrix 
+[V,D] = eig(A) ;  % GEt Eigenvalues and Eigenvectors 
+Eig = diag(D) ;
+[~,idx] = sort(Eig,'descend') ;
+PV = Eig(idx); % size of spread
+PC = V(:,idx); % these are the directions
+xAxis = [1 0];
+e=ellipse(3*sqrt(PV(1)),3*sqrt(PV(2)),atan(PC(2,1) / PC(1,1)),centr(1),centr(2));
+e.LineWidth = 2;
+
+% put ellipses left hand
+left = [LHd(group == 2,1), LHd(group == 2,2)];
+centL = [mean(LHd(group == 2,1)) mean(LHd(group == 2,2))];
+A = cov(left-mean(left)) ;   % co-variance matrix 
+[V,D] = eig(A) ;  % GEt Eigenvalues and Eigenvectors 
+Eig = diag(D) ;
+[val,idx] = sort(Eig,'descend') ;
+PV = Eig(idx) % size of spread
+PC = V(:,idx); % these are the directions
+xAxis = [1 0];
+cosOfAngle = max(min(dot(PC(1,:),xAxis)/(norm(PC(1,:))*norm(xAxis)),1),-1);
+e=ellipse(3*sqrt(PV(1)),3*sqrt(PV(2)),atan(PC(2,1) / PC(1,1)),centL(1),centL(2));
+e.LineWidth = 2;
+e.Color = 'r';
+
+xlim([10 28])
+ylim([37.5 90])
+legend({'Right' 'Left'})
+ylabel({'Skilled', 'B&B'},'fontsize', 14)
+xlabel('9HPT','fontsize', 14)
