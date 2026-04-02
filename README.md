@@ -57,9 +57,9 @@ This project combines neuroscience, signal processing, and data science techniqu
 
 ### Data Modalities
 
-* 🧠 EEG (electrophysiology)
-* 🎯 Behavioral performance metrics
-* 🦾 Motion capture (kinematics)
+* 🧠 EEG (electrophysiology). See `EEG/README.md`   
+* 🎯 Behavioral performance metrics. See  `behavioral/README.md`  
+* 🦾 Motion capture (kinematics). See `moCap/README.md`  
 
 ### Software Stack
 
