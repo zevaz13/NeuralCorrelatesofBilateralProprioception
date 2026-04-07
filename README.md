@@ -19,9 +19,15 @@ This repository extends the original work by:
 * Providing a **structured, reproducible pipeline** for multimodal data (EEG, motion capture, behavioral metrics)
 
 
-For information about how the data were acquired, please read the references or contact me at : sebastianruedaparra13@gmail.com
+For information about how the data were acquired, please read the references or contact me at : sebastianruedaparra13@gmail.com, and read the article:
+
+Experiment Setup
+
 <img width="623" height="720" alt="Picture3" src="https://github.com/user-attachments/assets/8267e3a1-1c20-46fe-a08c-43e2b7c3bbc1" />
-<img width="988" height="248" alt="ExpTimming" src="https://github.com/user-attachments/assets/d9dc7d81-5db8-4a88-9459-8a8e7e1cce1d" />
+
+Experiment Summary
+
+<img width="3501" height="976" alt="expFigure" src="https://github.com/user-attachments/assets/9c35ac1f-2e42-452b-85b1-88fd9dae003f" />
 
 ---
 
